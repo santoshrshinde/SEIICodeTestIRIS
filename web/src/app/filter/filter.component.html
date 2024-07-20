@@ -1,0 +1,33 @@
+<form  #form="ngForm" (ngSubmit)="filterData()" class="container" style="margin-top: 100px;">
+    <div class="col-12 p-0 m-0">
+        <mat-form-field class="w-100">
+            <mat-label>Sort</mat-label>
+            <mat-select [(ngModel)]="filterObj.sortorder" id="sortorder" name="sortorder">
+                <mat-option [value]="sortOption?.value"
+                    *ngFor="let sortOption of sortOptions">{{sortOption?.viewValue}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="col-12  p-0 m-0">
+        <mat-form-field class="w-100">
+            <mat-label>OrderBy</mat-label>
+            <mat-select [(ngModel)]="filterObj.sortby" name="sortby" id="sortby">
+                <mat-option [value]="sortOption?.value"
+                    *ngFor="let sortOption of orderByOptions">{{sortOption?.viewValue}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="col-12  p-0 m-0">
+        <mat-form-field class="w-100">
+            <mat-label>FilterBy</mat-label>
+            <mat-select [(ngModel)]="filterObj.filter" name="filter" id="filter">
+                <mat-option [value]="sortOption?.value"
+                    *ngFor="let sortOption of filterByOptions">{{sortOption?.viewValue}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="col-12  p-0 m-0">
+        <button mat-raised-button class="w-45" color="primary" type="submit" (click)="filterData()">Filter</button>
+        <button mat-raised-button class="w-45" color="default" id="clear" (click)="clear()">Clear</button>
+    </div>
+</form>

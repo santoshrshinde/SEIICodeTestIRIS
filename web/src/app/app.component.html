@@ -1,6 +1,15 @@
-<app-header></app-header>
-<app-subdivision-data-display></app-subdivision-data-display>
+<app-header class="fixed-top"></app-header>
 
+<div class="row m-0">
+    <div class="col-2  p-0 m-0 ">
+        <app-filter (filterChange)="filterData($event)" [filter]="filterObj"></app-filter>
+    </div>
+    <div class="col-10 p-0 m-0 ">
+        <app-subdivision-data-display *ngIf="subdivisionsResponse.subdivisions.length"
+            [items]="subdivisionsResponse.subdivisions" [total]="subdivisionsResponse.totalRecords"
+            (onscroll)="onScroll($event)"></app-subdivision-data-display>
+    </div>
+</div>
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->

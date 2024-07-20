@@ -1,0 +1,17 @@
+.status {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1px 14px;
+    color: white;
+}
+
+.active {
+    background: orangered;
+}
+.future {
+    background: orange;
+}
+.builtout {
+    background: green;
+}

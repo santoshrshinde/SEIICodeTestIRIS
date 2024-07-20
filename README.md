@@ -64,3 +64,7 @@ ACTIVE: This subdivision has ongoing construction <br />
 FUTURE: This subdivision will have construction in the near future <br />
 BUILT OUT: This subdivisions construction has been completed <br />
 NearMap: NearMap is one of the providers used at Zonda satellite for our image data. <br />
+
+
+run test cases => npm run ng test 
+run test cases dode coverage => npm run ng test --code-coverage 

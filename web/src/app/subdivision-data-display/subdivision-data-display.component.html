@@ -1,1 +1,15 @@
-<p>Display the subdivision data here!</p>
+<div class="mt-5" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
+    (scrolled)="onScroll()">
+    <div class="row m-0">
+        <div class="col-3 p-2 m-0" *ngFor="let subdivision of subdivisions">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                  <h3 class="card-title">{{subdivision.name}}</h3>
+                  <div class="status" [ngClass]="{'active': subdivision.subdivisionStatusCode === 'Active', 'future': subdivision.subdivisionStatusCode === 'Future','builtout': subdivision.subdivisionStatusCode === 'Builtout' }">{{subdivision.subdivisionStatusCode}}</div>
+                  <p class="card-text">{{subdivision.nearMapImageDate ? (subdivision.nearMapImageDate | date: 'short') : 'No date available'}}</p>
+                  <a href="#" mat-flat-button color="primary">Read more...</a>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

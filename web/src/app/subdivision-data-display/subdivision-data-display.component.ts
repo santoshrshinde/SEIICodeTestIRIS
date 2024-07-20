@@ -1,15 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Subdivision } from '../models/subdivision';
 
 @Component({
   selector: 'app-subdivision-data-display',
   templateUrl: './subdivision-data-display.component.html',
-  styleUrls: ['./subdivision-data-display.component.css']
+  styleUrls: ['./subdivision-data-display.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SubdivisionDataDisplayComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  @Input('items') subdivisions! : Subdivision[];
+  @Input('total') totalDivisions! : number;
+  
+  @Output('onscroll') onScrollEvent = new EventEmitter();
+  constructor() { 
+   
   }
 
+  ngOnInit(): void {
+    // console.log('Total', this.totalDivisions);
+  }
+
+
+  onScroll() {
+    if(this.subdivisions.length>=this.totalDivisions) {
+      console.log('No more items');
+      return;
+    }
+    console.log('on scroll!');
+    this.onScrollEvent.emit();
+  }
 }
