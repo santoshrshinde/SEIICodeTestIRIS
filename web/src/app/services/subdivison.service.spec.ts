@@ -81,7 +81,6 @@ describe('SubdivisonService', () => {
     // const req = httpMock.expectOne('GET', 'http://localhost:3000/v1/subdivisions?start=0&limit=1&sortorder=&sortby=&filter=.');
     const req = httpMock.expectOne(service['apiUrl'], '');
     expect(req.request.method).toBe('GET');
-    console.log('Request',req);
     req.flush(dummyData);
   });
 });
