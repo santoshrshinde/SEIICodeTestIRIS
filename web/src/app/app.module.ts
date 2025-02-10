@@ -12,9 +12,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { MatSelectModule } from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {MatIconModule} from '@angular/material/icon';
+
 
 import { FormsModule } from '@angular/forms';
 import { FilterComponent } from './filter/filter.component';
+import { GroupBySubdivisionComponent } from './group-by-subdivision/group-by-subdivision.component';
 
 
 @NgModule({
@@ -22,7 +27,8 @@ import { FilterComponent } from './filter/filter.component';
     AppComponent,
     HeaderComponent,
     SubdivisionDataDisplayComponent,
-    FilterComponent
+    FilterComponent,
+    GroupBySubdivisionComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +40,10 @@ import { FilterComponent } from './filter/filter.component';
     MatSelectModule,
     MatButtonModule,
     FormsModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    FlexLayoutModule,
+    MatIconModule
   ],
   providers: [SubdivisonService],
   bootstrap: [AppComponent]

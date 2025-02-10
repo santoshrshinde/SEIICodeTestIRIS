@@ -15,3 +15,14 @@
 .builtout {
     background: green;
 }
+.img-padd {
+    padding: 10% 20%;
+}
+.cardback {
+    background: linear-gradient(to bottom, #fafafa, #fff);
+}
+
+.cardback:hover {
+    background: #fff;
+    border: 10px solid red;
+}

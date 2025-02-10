@@ -9,21 +9,26 @@ import { Subdivision } from '../models/subdivision';
 })
 export class SubdivisionDataDisplayComponent implements OnInit {
 
-  @Input('items') subdivisions! : Subdivision[];
-  @Input('total') totalDivisions! : number;
-  
+  @Input('items') subdivisions!: Subdivision[];
+  @Input('total') totalDivisions!: number;
+
   @Output('onscroll') onScrollEvent = new EventEmitter();
-  constructor() { 
-   
+  scrollDistance: number = 1; // How far from the bottom to trigger scroll
+  scrollUpDistance: number = 2; // How far from the top to trigger scroll
+  scrollThrottle: number = 300; // Time in ms to throttle scroll events
+
+  constructor() {
+
   }
 
   ngOnInit(): void {
     // console.log('Total', this.totalDivisions);
+    this.onScroll();
   }
 
 
   onScroll() {
-    if(this.subdivisions.length>=this.totalDivisions) {
+    if (this.subdivisions.length >= this.totalDivisions) {
       console.log('No more items');
       return;
     }

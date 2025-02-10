@@ -72,7 +72,7 @@ describe('SubdivisonService', () => {
             "subdivisionSpecificStatus": "Future"
         }
     ];
-    // const service: SubdivisonService = TestBed.get(SubdivisonService);
+
     service.getSubdivisions(0, 30, '', '', '').subscribe((data: any) => {
       expect(data.length).toBe(1);
       expect(data).toEqual(dummyData);

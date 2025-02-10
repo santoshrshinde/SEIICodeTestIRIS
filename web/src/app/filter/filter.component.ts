@@ -56,7 +56,7 @@ export class FilterComponent implements OnInit {
   }
 
   filterData() {
-    console.log('Form submitted!',this.filterObj);
+    // console.log('Form submitted!',this.filterObj);
     this.filterObj.start= 0;
     this.filterChange.emit(this.filterObj);
   }

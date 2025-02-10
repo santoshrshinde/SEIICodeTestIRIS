@@ -1,7 +1,7 @@
 <app-header class="fixed-top"></app-header>
 
 <div class="row m-0">
-    <div class="col-2  p-0 m-0 ">
+    <div class="col-2  p-0 m-0 position-sticky">
         <app-filter (filterChange)="filterData($event)" [filter]="filterObj"></app-filter>
     </div>
     <div class="col-10 p-0 m-0 ">
@@ -10,12 +10,7 @@
             (onscroll)="onScroll($event)"></app-subdivision-data-display>
     </div>
 </div>
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
+<!-- <div class="mt-5">
+    <app-group-by-subdivision></app-group-by-subdivision>
+</div> -->
 <router-outlet></router-outlet>

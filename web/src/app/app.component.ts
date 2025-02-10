@@ -51,7 +51,6 @@ export class AppComponent implements OnInit {
 
   filterData(e: Filter) {
     this.filterObj = e;
-    console.log(this.filterObj)
     this.subdivisionsResponse.subdivisions = [];
     this.subdivisionsResponse.totalRecords = 0;
     this.getSubdivisions();

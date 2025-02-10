@@ -21,9 +21,9 @@ export interface Subdivision {
     community: string;
     zoom17Date: string;
     zoom18Date: string;
-    subdivisionGeometryId: null,
-    subdivisionGeometryBoundingBoxId: null,
-    subdivisionGeometryBoundaryId: null,
+    subdivisionGeometryId: null | string,
+    subdivisionGeometryBoundingBoxId: null | string,
+    subdivisionGeometryBoundaryId: null | string,
     subdivisionGeometryIntelligenceBoundaryId: number;
     subdivisionGeometryIntelligenceBoundaryStatusId: number;
     subdivisionGeometryIntelligenceBoundaryStatusCode: string;
@@ -31,8 +31,8 @@ export interface Subdivision {
     nearMapImageDate: string;
     imageBoxId: number;
     mostRecentIPointBatchDate: string;
-    iPoints: null,
-    validatediPoints: null,
+    iPoints: null | string,
+    validatediPoints: null | string,
     subdivisionSpecificStatus: string
 }
 
