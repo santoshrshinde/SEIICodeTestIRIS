@@ -2,19 +2,22 @@
 [infiniteScrollUpDistance]="scrollUpDistance" [infiniteScrollThrottle]="scrollThrottle" (scrolled)="onScroll()">
 <div class="row m-0">
   <div class="mt-4"></div>
-    <!-- <div class="col-12 col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 p-2 m-0" *ngFor="let subdivision of subdivisions"> -->
-    <div class="col-12 col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 p-1 m-0" *ngFor="let subdivision of subdivisions">
+    <!-- <div class="col-12 col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 p-2 m-0" *ngFor="let product of subdivisions"> -->
+    <div class="col-6 col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-1 m-0" *ngFor="let product of products">
       <!-- <div class="card shadow p-3  bg-white rounded"> -->
       <!-- <div class="card p-2  bg-white border border-secondary rounded-0"> -->
-      <div class="card p-2  cardback border border-secondary rounded-0">
-        <img src="./../../assets/data-management.png" loading="lazy" class="card-img-top img-padd" alt="">
+      <div class="card p-2  cardback ">
+        <!-- <img [src]="'https://blogs.ukoln.ac.uk/cultural-heritage/files/2010/03/NIM_1983-99_23.jpg'" loading="lazy" class="card-img-top img-padd" alt=""> -->
         <!-- <img src="./../../assets/santosh_shinde_photo.jpeg" class="card-img-top img-padd" alt=""> -->
+        <div  class="card-img-top img-container">
+          <img [src]="product.imagepath" loading="lazy" [title]="product.imagepath">
+          <!-- <img [src]="'https://blogs.ukoln.ac.uk/cultural-heritage/files/2010/03/NIM_1983-99_23.jpg'" [alt]="product.imagepath"> -->
+        </div>
         <div class="card-body">
-          <h3 class="card-title">{{subdivision.name}}</h3>
-          <!-- <div class="status" [ngClass]="{'active': subdivision.subdivisionStatusCode === 'Active', 'future': subdivision.subdivisionStatusCode === 'Future','builtout': subdivision.subdivisionStatusCode === 'Builtout' }">{{subdivision.subdivisionStatusCode}}</div> -->
-          <p class="card-text">{{subdivision.nearMapImageDate ? (subdivision.nearMapImageDate | date: 'short') : 'No
-            date available'}}</p>
-          <a href="#" id="readmore" name="readmore" mat-flat-button color="primary">Read more...</a>
+          <h3 class="card-title" [title]="product.name">{{product.name | truncate : 20 }}</h3>
+          <!-- <div class="status" [ngClass]="{'active': product.subdivisionStatusCode === 'Active', 'future': product.subdivisionStatusCode === 'Future','builtout': product.subdivisionStatusCode === 'Builtout' }">{{product.subdivisionStatusCode}}</div> -->
+          <div class="card-text">{{product.product_id}}</div>
+          <a href="#" id="readmore" name="readmore" mat-flat-button color="primary" class="float-end">Add to Cart</a>
         </div>
       </div>
     </div>

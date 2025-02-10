@@ -1,16 +1,2 @@
 <app-header class="fixed-top"></app-header>
-
-<div class="row m-0">
-    <div class="col-2  p-0 m-0 position-sticky">
-        <app-filter (filterChange)="filterData($event)" [filter]="filterObj"></app-filter>
-    </div>
-    <div class="col-10 p-0 m-0 ">
-        <app-subdivision-data-display *ngIf="subdivisionsResponse.subdivisions.length"
-            [items]="subdivisionsResponse.subdivisions" [total]="subdivisionsResponse.totalRecords"
-            (onscroll)="onScroll($event)"></app-subdivision-data-display>
-    </div>
-</div>
-<!-- <div class="mt-5">
-    <app-group-by-subdivision></app-group-by-subdivision>
-</div> -->
 <router-outlet></router-outlet>

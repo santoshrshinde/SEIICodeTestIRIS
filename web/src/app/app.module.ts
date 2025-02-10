@@ -13,13 +13,16 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { MatSelectModule } from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import {FlexLayoutModule} from '@angular/flex-layout';
+// import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatIconModule} from '@angular/material/icon';
 
 
 import { FormsModule } from '@angular/forms';
 import { FilterComponent } from './filter/filter.component';
 import { GroupBySubdivisionComponent } from './group-by-subdivision/group-by-subdivision.component';
+import { CartComponent } from './cart/cart.component';
+import { HomeComponent } from './home/home.component';
+import { TruncatePipe } from './pipes/trancate.pipe';
 
 
 @NgModule({
@@ -28,7 +31,10 @@ import { GroupBySubdivisionComponent } from './group-by-subdivision/group-by-sub
     HeaderComponent,
     SubdivisionDataDisplayComponent,
     FilterComponent,
-    GroupBySubdivisionComponent
+    GroupBySubdivisionComponent,
+    CartComponent,
+    HomeComponent,
+    TruncatePipe
   ],
   imports: [
     BrowserModule,
@@ -42,7 +48,7 @@ import { GroupBySubdivisionComponent } from './group-by-subdivision/group-by-sub
     FormsModule,
     MatToolbarModule,
     MatSidenavModule,
-    FlexLayoutModule,
+    // FlexLayoutModule,
     MatIconModule
   ],
   providers: [SubdivisonService],

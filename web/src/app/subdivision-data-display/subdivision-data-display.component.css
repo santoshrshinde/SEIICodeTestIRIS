@@ -17,6 +17,7 @@
 }
 .img-padd {
     padding: 10% 20%;
+    height: 200px;
 }
 .cardback {
     background: linear-gradient(to bottom, #fafafa, #fff);
@@ -24,5 +25,17 @@
 
 .cardback:hover {
     background: #fff;
-    border: 10px solid red;
+    cursor: pointer;
+    /* border: 10px solid red; */
+}
+
+.img-container {
+
+}
+.img-container img {
+    width: 100%;   /* Ensure the image takes up the full width */
+    height: 100%;  /* Ensure the image takes up the full height */
+    object-fit: cover; /* or 'contain', depending on behavior */
+    max-height: 187px;
+    min-height: 187px;
 }

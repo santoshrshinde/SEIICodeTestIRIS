@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3000/v1',
-  pageLimit: 30,
+  apiUrl: 'http://localhost:3000',
+  pageLimit: 20,
 };
 
 /*

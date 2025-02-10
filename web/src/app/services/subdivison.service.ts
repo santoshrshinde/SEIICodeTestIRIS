@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from './../../environments/environment';
-import { SubdivisionResponse } from '../models/subdivision';
+// import { SubdivisionResponse } from '../models/subdivision';
 import { Observable } from 'rxjs';
+import { ProductResponse } from '../models/Product';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +12,13 @@ export class SubdivisonService {
   private apiUrl = '';
   constructor(private http: HttpClient) { }
 
-  getSubdivisions(start: number, limit: number, filter: string, sortorder: string, sortby: string) {
+  /* getSubdivisions(start: number, limit: number, filter: string, sortorder: string, sortby: string) {
     this.apiUrl = `${environment.apiUrl}/subdivisions?start=${start}&limit=${limit}&sortorder=${sortorder}&sortby=${sortby}&filter=${filter}`
     return this.http.get<SubdivisionResponse>(this.apiUrl);
+  } */
+  getProducts(start: number, limit: number, filter: string, sortorder: string, sortby: string) {
+    this.apiUrl = `${environment.apiUrl}/api/products?start=${start}&limit=${limit}&sortorder=${sortorder}&sortby=${sortby}&filter=${filter}`
+    return this.http.get<ProductResponse>(this.apiUrl);
   }
 
   getSubdivisionGroups() {

@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Subdivision } from '../models/subdivision';
+import { Product, ProductResponse } from '../models/Product';
 
 @Component({
   selector: 'app-subdivision-data-display',
@@ -9,7 +10,7 @@ import { Subdivision } from '../models/subdivision';
 })
 export class SubdivisionDataDisplayComponent implements OnInit {
 
-  @Input('items') subdivisions!: Subdivision[];
+  @Input('items') products!: Product[];
   @Input('total') totalDivisions!: number;
 
   @Output('onscroll') onScrollEvent = new EventEmitter();
@@ -28,7 +29,7 @@ export class SubdivisionDataDisplayComponent implements OnInit {
 
 
   onScroll() {
-    if (this.subdivisions.length >= this.totalDivisions) {
+    if (this.products.length >= this.totalDivisions) {
       console.log('No more items');
       return;
     }
