@@ -16,8 +16,9 @@ export class SubdivisonService {
     this.apiUrl = `${environment.apiUrl}/subdivisions?start=${start}&limit=${limit}&sortorder=${sortorder}&sortby=${sortby}&filter=${filter}`
     return this.http.get<SubdivisionResponse>(this.apiUrl);
   } */
-  getProducts(start: number, limit: number, filter: string, sortorder: string, sortby: string) {
-    this.apiUrl = `${environment.apiUrl}/api/products?start=${start}&limit=${limit}&sortorder=${sortorder}&sortby=${sortby}&filter=${filter}`
+  getProducts(page: number, pageSize: number, search: string, orderDirection: string, orderBy: string) {
+    this.apiUrl = `${environment.apiUrl}/api/products?search=${search}&page=${page}&pageSize=${pageSize}&sortBy=${orderBy}&orderDirection=${orderDirection}`
+    // this.apiUrl = `${environment.apiUrl}/api/products?page=${start}&pageSize=${limit}&orderDirection=${sortorder}&orderBy=${sortby}&search=${filter}`
     return this.http.get<ProductResponse>(this.apiUrl);
   }
 

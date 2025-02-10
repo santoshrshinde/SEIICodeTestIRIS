@@ -12,11 +12,11 @@ import { ProductResponse } from '../models/Product';
 export class HomeComponent implements OnInit {
   title = 'web';
   filterObj = {
-    start : 0,
-    limit : environment.pageLimit,
-    filter: '',
+    page : 0,
+    pageSize : environment.pageLimit,
+    filterValue: '',
     sortorder: '',
-    sortby: '',
+    filterColumn: '',
   }
   productResponse: ProductResponse = {
     products: [],
@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
   }
 
   getSubdivisions() {
-    this.subdivisionsService.getProducts(this.filterObj.start, this.filterObj.limit, this.filterObj.filter, this.filterObj.sortorder, this.filterObj.sortby)
+    this.subdivisionsService.getProducts(this.filterObj.page, this.filterObj.pageSize, this.filterObj.filterValue, this.filterObj.sortorder, this.filterObj.filterColumn)
       .subscribe({
         next: (products: ProductResponse) => {
           if (this.productResponse.products.length === 0) {
@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit {
   }
 
   onScroll(e: Event) {
-    this.filterObj.start +=  environment.pageLimit;
+    this.filterObj.page +=  environment.pageLimit;
     this.getSubdivisions();
   }
 

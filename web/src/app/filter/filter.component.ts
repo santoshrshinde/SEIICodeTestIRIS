@@ -32,11 +32,11 @@ export class FilterComponent implements OnInit {
 
   constructor() {
     this.filterObj = {
-      start : 0,
-      limit : 0,
-      filter: '',
+      page : 0,
+      pageSize : 0,
+      filterValue: '',
       sortorder: '',
-      sortby: '',
+      filterColumn: '',
     };
    }
 
@@ -46,18 +46,18 @@ export class FilterComponent implements OnInit {
 
   clear() {
     this.filterObj = {
-      start : 0,
-      limit : environment.pageLimit,
-      filter: '',
+      page : 0,
+      pageSize : environment.pageLimit,
+      filterValue: '',
       sortorder: '',
-      sortby: '',
+      filterColumn: '',
     };
     this.filterChange.emit(this.filterObj);
   }
 
   filterData() {
     // console.log('Form submitted!',this.filterObj);
-    this.filterObj.start= 0;
+    this.filterObj.page= 0;
     this.filterChange.emit(this.filterObj);
   }
 

@@ -5,12 +5,12 @@ const fs = require('fs');
 
 // get products
 router.get('/', async (req, res) => {
-    const page = parseInt(req.query.start) || 1; // Page number, default to 1
+    const page = parseInt(req.query.page) || 1; // Page number, default to 1
     const pageSize = parseInt(req.query.limit) || 10; // Number of items per page, default to 10
-    const offset = page * pageSize; // Calculate offset to skip records
+    const offset = page + 2; // Calculate offset to skip records
 
     // Get sorting parameters from query
-    const sortBy = req.query.sortby || 'name'; // Default sort by 'id'
+    const sortBy = req.query.sortby || 'product_id'; // Default sort by 'id'
     const sortOrder = req.query.sortorder === 'desc' ? 'DESC' : 'ASC'; // Default to ascending
 
     // Get filtering parameters from query (e.g., filtering by 'name')
@@ -51,7 +51,15 @@ router.get('/', async (req, res) => {
         pool.query(query, queryParams),
     ]);
     
+    await pool.end();
+    // res.status(200).json({ message: 'Products', products: result[1], totalRecords: result[0] });
+    // res.status(200).json({ totalRecords: result[0][0][0].total});
     res.status(200).json({ products : result[1][0], totalRecords: result[0][0][0].total});
+
+    /* db.query(query, queryParams, (err, result) => {
+        if (err) return res.status(500).json({ error: err.message });
+        res.status(200).json({ message: 'Products', products: result , totalRecords: totalRecords });
+    }); */
 });
 
 // Add product

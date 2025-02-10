@@ -47,9 +47,9 @@ export interface Options {
 }
 
 export interface Filter {
-    start: number;
-    limit: number; 
-    filter: string; 
+    page: number;
+    pageSize: number; 
+    filterValue: string; 
     sortorder: string; 
-    sortby: string;
+    filterColumn: string;
 }

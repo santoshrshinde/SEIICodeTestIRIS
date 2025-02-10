@@ -11,7 +11,7 @@
     <div class="col-12  p-0 m-0">
         <mat-form-field class="w-100">
             <mat-label>OrderBy</mat-label>
-            <mat-select [(ngModel)]="filterObj.sortby" name="sortby" id="sortby">
+            <mat-select [(ngModel)]="filterObj.filterColumn" name="sortby" id="sortby">
                 <mat-option [value]="sortOption?.value"
                     *ngFor="let sortOption of orderByOptions">{{sortOption?.viewValue}}</mat-option>
             </mat-select>
@@ -20,7 +20,7 @@
     <div class="col-12  p-0 m-0">
         <mat-form-field class="w-100">
             <mat-label>FilterBy</mat-label>
-            <mat-select [(ngModel)]="filterObj.filter" name="filter" id="filter">
+            <mat-select [(ngModel)]="filterObj.filterValue" name="filter" id="filter">
                 <mat-option [value]="sortOption?.value"
                     *ngFor="let sortOption of filterByOptions">{{sortOption?.viewValue}}</mat-option>
             </mat-select>
