@@ -2,43 +2,53 @@
     <img src="../../assets/jira-logo-scaled.png" class="logo-img" alt="image">
 </mat-toolbar>
  -->
- <div > 
-    <mat-toolbar color="primary">
-      <div fxShow="true" fxHide.gt-sm="true">
-        <button mat-icon-button > <!-- (click)="sidenav.toggle()" -->
-          <!-- <mat-icon>menu</mat-icon> -->
+<div>
+  <mat-toolbar color="primary">
+    <div fxShow="true" fxHide.gt-sm="true">
+      <button mat-icon-button> <!-- (click)="sidenav.toggle()" -->
+        <mat-icon class="logo-image">eco</mat-icon>
+      </button>
+    </div>
+
+    <a  class="companyName" routerLink="/">
+      <span>ecommerce</span>
+    </a>
+    <span class="nav-spacer"></span>
+    <div fxShow="true" fxHide.lt-md="true">
+      <button mat-button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>account_circle</mat-icon>
+          <span>Profile</span>
         </button>
-      </div>
-  
-      <a mat-button class="companyName" routerLink="/">
-        <span>ecommerce</span>
+
+        <button mat-menu-item>
+          <mat-icon>logout</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+      <a mat-button routerLink="/cart">
+        <mat-icon>shopping_cart</mat-icon>
       </a>
-      <span class="nav-spacer"></span>
-      <div fxShow="true" fxHide.lt-md="true">
-       <!--  <a mat-button routerLink="/about-us">About us</a>
+    </div>
+
+  </mat-toolbar>
+  <mat-sidenav-container fxFlexFill class="head-container">
+
+    <mat-sidenav color="primary" #sidenav fxLayout="column" mode="over" opened="false" fxHide.gt-sm="true">
+      <div fxLayout="column">
+        <a mat-button routerLink="/about-us">About us</a>
         <a mat-button routerLink="/prices">Prices</a>
         <a mat-button routerLink="/start-page">Start page</a>
-        <a mat-button routerLink="/offer">Offer</a> -->
-        <a mat-button routerLink="/cart">
-            <mat-icon>shopping_cart</mat-icon>
-        </a>
+        <a mat-button routerLink="/offer">Offer</a>
+        <a mat-button routerLink="/contact">Contact</a>
       </div>
-  
-    </mat-toolbar>
-    <mat-sidenav-container fxFlexFill class="head-container">
-  
-      <mat-sidenav color="primary" #sidenav fxLayout="column" mode="over"  opened="false" fxHide.gt-sm="true">
-        <div fxLayout="column">
-          <a mat-button routerLink="/about-us">About us</a>
-          <a mat-button routerLink="/prices">Prices</a>
-          <a mat-button routerLink="/start-page">Start page</a>
-          <a mat-button routerLink="/offer">Offer</a>
-          <a mat-button routerLink="/contact">Contact</a>
-        </div>
-      </mat-sidenav>
-      <!-- <mat-sidenav-content fxFlexFill>
+    </mat-sidenav>
+    <!-- <mat-sidenav-content fxFlexFill>
         Awesome content
       </mat-sidenav-content> -->
-  
-    </mat-sidenav-container>
-  </div>
+
+  </mat-sidenav-container>
+</div>

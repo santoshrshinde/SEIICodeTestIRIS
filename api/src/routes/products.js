@@ -6,8 +6,8 @@ const fs = require('fs');
 // get products
 router.get('/', async (req, res) => {
     const page = parseInt(req.query.page) || 1; // Page number, default to 1
-    const pageSize = parseInt(req.query.limit) || 10; // Number of items per page, default to 10
-    const offset = page + 2; // Calculate offset to skip records
+    const pageSize = parseInt(req.query.pageSize) || 11; // Number of items per page, default to 10
+    const offset = page + 1; // Calculate offset to skip records
 
     // Get sorting parameters from query
     const sortBy = req.query.sortby || 'product_id'; // Default sort by 'id'

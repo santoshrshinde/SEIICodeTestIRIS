@@ -5,7 +5,8 @@ import { Subscription, concatMap, tap } from 'rxjs';
 @Component({
   selector: 'app-group-by-subdivision',
   templateUrl: './group-by-subdivision.component.html',
-  styleUrls: ['./group-by-subdivision.component.css']
+  styleUrls: ['./group-by-subdivision.component.css'],
+  standalone: false
 })
 export class GroupBySubdivisionComponent implements OnInit {
 

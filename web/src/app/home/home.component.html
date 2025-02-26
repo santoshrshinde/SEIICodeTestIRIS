@@ -1,9 +1,9 @@
 
 <div class="row m-0">
-    <div class="col-2  p-0 m-0 position-sticky">
+    <!-- <div class="col-2  p-0 m-0 position-sticky">
         <app-filter (filterChange)="filterData($event)" [filter]="filterObj"></app-filter>
-    </div>
-    <div class="col-10 p-0 m-0 ">
+    </div> -->
+    <div class="col-12 p-0 m-0 ">
         <app-subdivision-data-display *ngIf="productResponse.products.length"
         [items]="productResponse.products" [total]="productResponse.totalRecords"
         (onscroll)="onScroll($event)"></app-subdivision-data-display>

@@ -21,6 +21,7 @@
 }
 .cardback {
     background: linear-gradient(to bottom, #fafafa, #fff);
+    transition: transform .5s, visibility .5s ease-in-out;
 }
 
 .cardback:hover {
@@ -36,6 +37,13 @@
     width: 100%;   /* Ensure the image takes up the full width */
     height: 100%;  /* Ensure the image takes up the full height */
     object-fit: cover; /* or 'contain', depending on behavior */
-    max-height: 187px;
+    max-height: 180px;
     min-height: 187px;
+    transform-origin: 0.8 1;
+    transition: transform .5s, visibility .5s ease-in-out;
+}
+
+.cardback:hover img {
+    transform: scale(1.04);
+    border-radius: 5px;
 }

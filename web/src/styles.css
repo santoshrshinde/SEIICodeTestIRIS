@@ -5,3 +5,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .sidebar {
     background-color: #808080;
 }
+.blue-snackbar {
+    margin-top: 500px;
+    background: #ffd23c;
+    color: #fff;
+    font-weight: 500;
+    font-size: 20px;
+    z-index: 9999;
+    width: 100px;
+}

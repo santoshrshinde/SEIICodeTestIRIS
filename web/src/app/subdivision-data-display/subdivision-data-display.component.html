@@ -14,10 +14,10 @@
           <!-- <img [src]="'https://blogs.ukoln.ac.uk/cultural-heritage/files/2010/03/NIM_1983-99_23.jpg'" [alt]="product.imagepath"> -->
         </div>
         <div class="card-body">
-          <h3 class="card-title" [title]="product.name">{{product.name | truncate : 20 }}</h3>
+          <h3 class="card-title fw-bold" [title]="product.name">{{product.name | titlecase | truncate : 20 }}</h3>
           <!-- <div class="status" [ngClass]="{'active': product.subdivisionStatusCode === 'Active', 'future': product.subdivisionStatusCode === 'Future','builtout': product.subdivisionStatusCode === 'Builtout' }">{{product.subdivisionStatusCode}}</div> -->
-          <div class="card-text">{{product.product_id}}</div>
-          <a href="#" id="readmore" name="readmore" mat-flat-button color="primary" class="float-end">Add to Cart</a>
+          <div class="card-text mb-2">{{product.description | titlecase | truncate : 20}}</div>
+          <button mat-flat-button color="primary" class="float-end w-100" (click)="addToCart(product)">Add to Cart</button>
         </div>
       </div>
     </div>

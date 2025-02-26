@@ -4,20 +4,25 @@ const jwt = require('jwt-simple');
 const router = express.Router();
 const db = require('./../db/db');
 
-const secretKey = 'your_jwt_secret_key'; // You can store this in an environment variable.
+const secretKey = 'santoshloveshinnu'; // You can store this in an environment variable.
 
 // User registration
 router.post('/register', (req, res) => {
   const { username, password, email, address } = req.body;
-  bcrypt.hash(password, 10, (err, hashedPassword) => {
-    if (err) return res.status(500).json({ error: err.message });
-
-    const query = 'INSERT INTO users (username, password, email, address) VALUES (?, ?, ?, ?)';
-    db.query(query, [username, hashedPassword, email, address], (err, result) => {
+  try {
+    bcrypt.hash(password, 10, (err, hashedPassword) => {
       if (err) return res.status(500).json({ error: err.message });
-      res.status(201).json({ message: 'User registered successfully' });
+  
+      const query = 'INSERT INTO users (username, password, email, address) VALUES (?, ?, ?, ?)';
+      db.query(query, [username, hashedPassword, email, address], (err, result) => {
+        if (err) return res.status(500).json({ error: err.message });
+        res.status(201).json({ message: 'User registered successfully' });
+      });
     });
-  });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+  // res.status(500).json({ error: error });
 });
 
 // User authentication (login)
