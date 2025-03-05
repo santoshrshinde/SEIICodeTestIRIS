@@ -31,4 +31,25 @@ export class SubdivisonService {
     this.apiUrl = `${environment.apiUrl}/subdivisions/subdivision_status_code?status=${status}`;
     return this.http.get(this.apiUrl);
   }
+  // Cart
+  addToCart(product: any): Observable<any> {
+    return this.http.post(`${environment.apiUrl}/api/cart/add`, product);
+  }
+  // Cart
+  removeFromCart(product: any): Observable<any> {
+    console.log(product);
+    return this.http.post(`${environment.apiUrl}/api/cart/delete`, product);
+  }
+
+  getCartItems(user_id: any): Observable<any> {
+    return this.http.post(`${environment.apiUrl}/api/cart/all`, {user_id});
+  }
+  // users 
+  login(credentials: any): Observable<any> {
+    return this.http.post(`${environment.apiUrl}/api/users/login`, credentials);
+  }
+
+  getUserById(userId: string): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/api/users/${userId}`);
+  }
 }

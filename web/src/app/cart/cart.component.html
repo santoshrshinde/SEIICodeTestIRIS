@@ -1,0 +1,35 @@
+
+<div class="container my-5">
+    <h2 class="mb-4">Shopping Cart</h2>
+    <div class="row">
+        <!-- Cart Item  -->
+        <div class="col-12 mb-3" *ngFor="let cart of cartItems">
+            <div class="card p-3 border">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img [src]="cart.imagepath" alt="Item Image" class="img-fluid rounded cart-img">
+                    </div>
+                    <div class="col-md-6">
+                        <h5>{{cart.name}}</h5>
+                        <p>{{cart.description}}</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <input type="number" [(ngModel)]="cart.quantity" class="form-control w-25" min="1">
+                            <span class="text-muted">{{cart.price | currency: "INR"}}</span>
+                            <button mat-button color="warn" class="float-end w-50 mt-3 mb-3" (click)="removeFromCart(cart)">Remove <mat-icon>delete</mat-icon> </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Total Price and Checkout Section -->
+    <div class="row">
+        <div class="col-12 text-end">
+            <h4>Total: <span>{{ totalCartPrice | currency: "INR" }}</span></h4>
+            <button mat-flat-button color="primary" class="float-end d-block d-md-none w-50  mt-3 mb-3">Proceed to Checkout</button>
+            <button mat-flat-button color="primary" class="float-end d-none d-md-block w-25 mt-3 mb-3">Proceed to Checkout</button>
+        </div>
+    </div>
+</div>

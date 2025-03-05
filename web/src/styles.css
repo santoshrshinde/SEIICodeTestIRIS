@@ -7,10 +7,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 .blue-snackbar {
     margin-top: 500px;
-    background: #ffd23c;
+    background: #808080;
     color: #fff;
     font-weight: 500;
     font-size: 20px;
     z-index: 9999;
     width: 100px;
+    border: 1px solid #000;
 }

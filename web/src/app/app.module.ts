@@ -31,6 +31,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { DialogService } from './services/dialog.service';
 import { MydialogComponent } from './mydialog/mydialog.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -46,7 +47,8 @@ import { MydialogComponent } from './mydialog/mydialog.component';
     HomeComponent,
     TruncatePipe,
     LoginComponent,
-    MydialogComponent
+    MydialogComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

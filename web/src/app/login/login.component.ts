@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { SubdivisonService } from '../services/subdivison.service';
+import { DialogService } from '../services/dialog.service';
 
 
 @Component({
@@ -12,11 +14,11 @@ import { Observable } from 'rxjs';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  apiUrl = 'https://your-backend-api-url/login'; // Your backend API URL
 
   constructor(
     private fb: FormBuilder,
-    private http: HttpClient
+    private subdivisonService: SubdivisonService,
+    private dialogService: DialogService
   ) {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required]],
@@ -25,29 +27,23 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+
   }
 
   onSubmit(): void {
-    if (this.loginForm.invalid) {
-      return;
-    }
-
-    const loginData = this.loginForm.value;
-    this.login(loginData).subscribe(
-      (response) => {
-        console.log('Login successful', response);
-        // Handle successful login response (e.g., store tokens, navigate, etc.)
+    if (this.loginForm.invalid) return;
+   
+    this.subdivisonService.login(this.loginForm.value).subscribe({
+      next: (response) => {
+        sessionStorage.setItem('user_info', JSON.stringify({token: response.token, user_id: response.user_id}));
+        this.dialogService.closeDialog();
       },
-      (error) => {
+      error: (error) => {
         console.error('Login failed', error);
-        // Handle login error (e.g., show error message)
       }
-    );
+    });
   }
 
-  login(credentials: any): Observable<any> {
-    return this.http.post(this.apiUrl, credentials);
-  }
+
 
 }

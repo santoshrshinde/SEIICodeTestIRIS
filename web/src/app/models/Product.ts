@@ -24,3 +24,13 @@ export interface Filter {
     sortorder: string; 
     sortby: string;
 }
+
+export interface CartItems {
+    product_id: number;
+    name: string;
+    description: string;
+    imagepath: string;
+    price: number;
+    stock_quantity: number;
+    quantity: number;
+}

@@ -1,19 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { SubdivisonService } from '../services/subdivison.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'],
-  standalone: false
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css']
 })
-export class HeaderComponent implements OnInit {
-
+export class ProfileComponent implements OnInit {
   profileData: any;
 
-  constructor(private subdivisonService: SubdivisonService,
-    private router: Router) { }
+  constructor(private subdivisonService: SubdivisonService) { }
 
   ngOnInit(): void {
     this.getProfile();

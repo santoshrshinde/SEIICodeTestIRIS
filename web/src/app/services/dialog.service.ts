@@ -18,4 +18,8 @@ export class DialogService {
 
     return dialogRef.afterClosed();
   }
+
+  closeDialog() {
+    this.dialog.closeAll();
+  }
 }
