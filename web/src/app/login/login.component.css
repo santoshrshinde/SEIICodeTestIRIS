@@ -11,3 +11,16 @@ mat-card {
     /* width: 300px; */
     box-shadow: none;
 }
+.invalid-error-box {
+    height: 25px;
+}
+.login {
+    /* height: 300px; */
+    padding: 0px  0 30px 0;
+}
+.user-image {
+    background-size: cover;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}

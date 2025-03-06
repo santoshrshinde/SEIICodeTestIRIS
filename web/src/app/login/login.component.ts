@@ -1,7 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
 import { SubdivisonService } from '../services/subdivison.service';
 import { DialogService } from '../services/dialog.service';
 
@@ -14,7 +12,7 @@ import { DialogService } from '../services/dialog.service';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-
+  isError: boolean = false;
   constructor(
     private fb: FormBuilder,
     private subdivisonService: SubdivisonService,
@@ -35,11 +33,20 @@ export class LoginComponent implements OnInit {
    
     this.subdivisonService.login(this.loginForm.value).subscribe({
       next: (response) => {
-        sessionStorage.setItem('user_info', JSON.stringify({token: response.token, user_id: response.user_id}));
-        this.dialogService.closeDialog();
+        if(response.success){
+          this.isError = false;
+          sessionStorage.setItem('user_info', JSON.stringify({token: response.token, user_id: response.user_id}));
+          this.dialogService.closeDialog();
+        } else {
+          this.isError = true;
+        }
       },
       error: (error) => {
+        this.isError = true;
         console.error('Login failed', error);
+        setTimeout(() => {
+          this.isError = false;
+        }, 3000);
       }
     });
   }

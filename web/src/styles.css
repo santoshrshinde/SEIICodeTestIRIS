@@ -15,3 +15,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     width: 100px;
     border: 1px solid #000;
 }
+
+.dialog-pannel {
+    background-color: #808080;
+}

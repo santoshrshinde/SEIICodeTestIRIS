@@ -13,7 +13,8 @@ export class DialogService {
   openDialog(component: ComponentType<any>, data?: any) {
     const dialogRef = this.dialog.open(component, {
       width: '400px',
-      data: data // passing data to dialog
+      data: data, // passing data to dialog
+      panelClass: 'dialog-pannel'
     });
 
     return dialogRef.afterClosed();

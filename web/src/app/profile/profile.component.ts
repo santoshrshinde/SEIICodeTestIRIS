@@ -18,6 +18,7 @@ export class ProfileComponent implements OnInit {
   getProfile() {
     const uInfo: any = sessionStorage.getItem('user_info');
     const user_info = JSON.parse(uInfo);
+    if(!user_info) return
     this.subdivisonService.getUserById(user_info.user_id).subscribe({
       next: (data) => {
         this.profileData = data;
